@@ -11,12 +11,22 @@ Given("I have api key and token", () => {
 
 When("I call createBoard endpoint", () => {
     cy.log("I call createBoard endpoint");
-    cy.request(
-      "POST", 
-      "https://api.trello.com/1/boards/?name=Cypress_test_Board&key=" + Cypress.env("apiKey") + "&token=" + Cypress.env("token"), {
-      title: "Cypress",
-      body: {},
-    });
+    // cy.request(
+    //   "POST", 
+    //   "https://api.trello.com/1/boards/?name=Cypress_test_Board&key=" + Cypress.env("apiKey") + "&token=" + Cypress.env("token"), {
+    //   title: "Cypress",
+    //   body: {},
+    // });
+});
+
+When("I call deleteBoard endpoint", () => {
+    cy.log("I call deleteBoard endpoint");
+    // cy.request(
+    //   "POST", 
+    //   "https://api.trello.com/1/boards/{id}?key=" + Cypress.env("apiKey") + "&token=" + Cypress.env("token"), {
+    //   title: "Cypress",
+    //   body: {},
+    // });
 });
 
 Then("API retuns successful response", () => {

@@ -25,7 +25,12 @@ module.exports = defineConfig({
     viewportWidth: 3072,
     supportFile: "cypress/support/e2e.js"
   },
-  component: {
-
+  reporter: "mochawesome",
+  reporterOptions: {
+    charts: false,
+    html: true,
+    json: true,
+    reportDir: "cypress/results",
+    reportFilename: "report"
   }
 });
