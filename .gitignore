@@ -1,0 +1,11 @@
+# test results
+cypress/downloads
+cypress/screenshots
+cypress/videos
+
+# logs and local packages
+.idea
+vscode
+.logs
+.log
+node_modules

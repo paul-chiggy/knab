@@ -1,0 +1,32 @@
+{
+  "name": "knab",
+  "version": "1.0.0",
+  "description": "KNAB assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress run",
+    "lint": "npx eslint cypress",
+    "lint:fix": "npx eslint cypress --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paul-chiggy/knab.git"
+  },
+  "author": "Pavlo Chigishev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paul-chiggy/knab/issues"
+  },
+  "homepage": "https://github.com/paul-chiggy/knab#readme",
+  "devDependencies": {
+    "cypress": "^11.2.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "eslint": "^8.28.0",
+    "eslint-plugin-chai-friendly": "^0.7.2",
+    "eslint-plugin-cypress": "^2.12.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "step_definitions": "./cypress/support/step_definitions"
+  }
+}
