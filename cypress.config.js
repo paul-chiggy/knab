@@ -28,9 +28,9 @@ module.exports = defineConfig({
   reporter: "mochawesome",
   reporterOptions: {
     charts: false,
-    html: true,
+    html: false,
     json: true,
-    reportDir: "cypress/results",
+    reportDir: "cypress/results/.jsons",
     reportFilename: "report"
   }
 });
