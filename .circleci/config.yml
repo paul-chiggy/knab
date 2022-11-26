@@ -13,20 +13,16 @@ orbs:
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
   - cypress/install:
-      build: 'npm ci' # run a custom app build step
+      install: npm ci # run a custom app build step
   - cypress/lint:
       requires:
         - cypress/install
-      lint: 'npm run lint'
+      lint: npm run lint
   - cypress/run:
       requires:
         - cypress/install
         - cypress/lint
-      record: true # record results with Cypress Cloud
-      parallel: true # split all specs across machines
-      parallelism: 4 # use 4 CircleCI machines to finish quickly
-      group: 'all tests' # name this group "all tests" on the dashboard
-      start: 'npm run test' # start server before running tests
+      run: npm run test # start server before running tests
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
