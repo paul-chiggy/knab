@@ -1,19 +1,14 @@
-Feature: Create new boards via API
+Feature: Create new boards via UI
 
-  I want to create a new board via API
+  I want to create a new board via UI
 
   Background:
-    Given There is a createBoard API endpoint
-  
-  @smoke
-  @regression
-  Scenario: Creating a board with valid input
-    When I provide valid input data
-    And I call createBoard endpoint
-    Then API creates a valid board
+    Given I am on the boards page
 
-  @regression
-  Scenario: Creating a board with invalid input
-    When I provide invalid input data
-    And I call createBoard endpoint
-    Then API returns Bad request response
+  @smoke
+  @ui
+  Scenario: Board created with valid input
+    When I click on Create new board button
+      And I fill in board name
+      And I click Create button
+    Then FE adds a valid board with given name

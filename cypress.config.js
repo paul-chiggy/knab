@@ -14,6 +14,7 @@ module.exports = defineConfig({
     viewportHeight: 1920,
     viewportWidth: 3072,
     supportFile: "cypress/support/e2e.js",
+    chromeWebSecurity: false,
     reporterOptions: {
       mochaFile: "cypress/results/results-[hash].xml",
       toConsole: true
