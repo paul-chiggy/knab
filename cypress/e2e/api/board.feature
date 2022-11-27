@@ -8,8 +8,8 @@ Feature: Create new boards via API
   @smoke
   @regression
   Scenario: Creating a board with valid input
-    When I call createBoard endpoint
-    And provide valid input data
+    When I provide valid input data
+    And I call createBoard endpoint
     Then API retuns successful response
     And new board gets added
 
