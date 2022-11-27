@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="4.702" tests="2" failures="0">
+  <testsuite name="Root Suite" timestamp="2022-11-27T14:47:32" tests="0" file="cypress/e2e/api/board.feature" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Create new boards via API" timestamp="2022-11-27T14:47:32" tests="2" time="4.671" failures="0">
+    <testcase name="Create new boards via API Creating a board with valid input" time="1.157" classname="Creating a board with valid input">
+    </testcase>
+    <testcase name="Create new boards via API Creating a board with invalid input" time="1.223" classname="Creating a board with invalid input">
+    </testcase>
+  </testsuite>
+</testsuites>
