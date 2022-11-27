@@ -1,20 +1,21 @@
-Feature: Create new board via UI
+Feature: Create new boards via API
 
-  I want to create a new board via UI
+  I want to create a new board via API
 
   Background:
     Given I have api key and token
   
   @smoke
+  @regression
   Scenario: Creating a board with valid input
-    When I call createBoard endpoint
-    And provide valid input data
+    When I provide valid input data
+    And I call createBoard endpoint
     Then API retuns successful response
     And new board gets added
 
   @regression
   Scenario: Creating a board with invalid input
-    When I call createBoard endpoint
-    And provide invalid input data
+    When I provide invalid input data
+    And I call createBoard endpoint
     Then API retuns successful response
     And new board gets added

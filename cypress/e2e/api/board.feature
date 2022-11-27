@@ -15,7 +15,7 @@ Feature: Create new boards via API
 
   @regression
   Scenario: Creating a board with invalid input
-    When I call createBoard endpoint
-    And provide invalid input data
+    When I provide invalid input data
+    And I call createBoard endpoint
     Then API retuns successful response
     And new board gets added

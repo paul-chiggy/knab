@@ -14,12 +14,16 @@ When("I provide valid input data", () => {
   // });
   cy.request(
     "GET", 
-    "https://api.trello.com/1/boards/?id=6005af6affd5445e26a629ef&key=" + Cypress.env("apiKey") + "&token=" + Cypress.env("token"), {
+    "https://api.trello.com/1/boards/6005af6affd5445e26a629ef?key=" + Cypress.env("apiKey") + "&token=" + Cypress.env("token"), {
       title: "Cypress",
       body: {},
     }).then(res => {
     cy.log(res);
   });
+});
+
+When("I provide invalid input data", () => {
+  cy.log("I provide invalid input data");
 });
 
 Then("API retuns successful response", () => {
@@ -28,10 +32,6 @@ Then("API retuns successful response", () => {
 
 And("new board gets added", () => {
   cy.log("new board gets added");
-});
-
-And("provide invalid input data", () => {
-  cy.log("provide invalid input data");
 });
 
 And("I call createBoard endpoint", () => {
