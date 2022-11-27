@@ -3,7 +3,7 @@ Feature: Create new boards via API
   I want to create a new board via API
 
   Background:
-    Given I have api key and token
+    Given There is a createBoard API endpoint
   
   @smoke
   @regression

@@ -2,26 +2,38 @@ import { After, Given, Then, When, And } from "cypress-cucumber-preprocessor/ste
 
 // vars for tests
 var boardName;
+var endpointUrl;
 var statusOk;
 var statusBadRequest;
 var boardIds = new Array();
 
-Given("I have api key and token", () => {
-  cy.log("key: " + Cypress.env("apiKey") + " | token: " + Cypress.env("token"));
+Given("There is a createBoard API endpoint", () => {
+  endpointUrl = Cypress.env("baseUrl") + "/1/boards/?name=";
 });
 
 When("I provide valid input data", () => {
   boardName = "Cypress_test_KNAB";
-  cy.log("I provide valid input data: " + boardName);
 });
 
 When("I provide invalid input data", () => {
   boardName = "";
-  cy.log("I provide invalid input data: " + boardName);
 });
 
 Then("API creates a valid board", () => {
+  // check that response is OK
   expect(statusOk).to.eq(200);
+  // get the newly created board and check for ID
+  cy.request(
+    {
+      method: "GET",
+      url: Cypress.env("baseUrl") + "/1/boards/" + boardIds[0] + "?key=" + Cypress.env("apiKey") + "&token=" + Cypress.env("token"),
+      body: {},
+      failOnStatusCode: false
+    })
+    .then(res => { 
+      expect(res.status).to.eq(200);
+      expect(res.body.id).to.eq(boardIds[0]);
+    });
 });
 
 Then("API returns Bad request response", () => {
@@ -32,21 +44,20 @@ And("I call createBoard endpoint", () => {
   cy.request(
     {
       method: "POST",
-      url: "https://api.trello.com/1/boards/?name=" + boardName + "&key=" + Cypress.env("apiKey") + "&token=" + Cypress.env("token"),
+      url: endpointUrl + boardName + "&key=" + Cypress.env("apiKey") + "&token=" + Cypress.env("token"),
       body: {},
       failOnStatusCode: false
     })
-    .then(res => {
-      cy.log(res.status);
-      console.log(res);
-      if(boardName == "") statusBadRequest = res.status;
-      else {
-        statusOk = res.status;
-        boardIds.push(res.body.id);
-      }
-    });
-  cy.log("I call createBoard endpoint");
+    .then(res => { processRequest(res); });
 });
+
+function processRequest(res) {
+  if(boardName == "") statusBadRequest = res.status;
+  else {
+    statusOk = res.status;
+    boardIds.push(res.body.id);
+  }
+}
 
 // this will get called before each scenario
 After(() => {
