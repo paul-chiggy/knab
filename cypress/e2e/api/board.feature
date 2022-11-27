@@ -6,6 +6,7 @@ Feature: Create new boards via API
     Given I have api key and token
   
   @smoke
+  @regression
   Scenario: Creating a board with valid input
     When I call createBoard endpoint
     And provide valid input data
