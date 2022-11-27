@@ -1,4 +1,4 @@
-Feature: Create new board via API
+Feature: Create new boards via API
 
   I want to create a new board via API
 
