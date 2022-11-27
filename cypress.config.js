@@ -17,6 +17,6 @@ module.exports = defineConfig({
     reporterOptions: {
       mochaFile: "cypress/results/results-[hash].xml",
       toConsole: true
-   }
+    }
   }
 });
