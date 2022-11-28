@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "npx cypress run",
+    "test:smoke": "npx cypress run --browser chrome -e TAGS='@smoke'",
+    "test:ui": "npx cypress run --browser chrome -e TAGS='@ui'",
+    "test:api": "npx cypress run --browser chrome -e TAGS='@api'",
     "lint": "npx eslint cypress",
     "lint:fix": "npx eslint cypress --fix"
   },
